@@ -3,6 +3,19 @@ import Head from "next/head";
 import JobCard from "../src/components/JobCard";
 import styles from "../styles/Home.module.css";
 
+const sampleCardData = {
+  company: {
+    logo: "",
+    name: "iFood",
+  },
+  job: {
+    title: "Padawan",
+    place: "SP/Remoto",
+  },
+
+  stack: ["HTML,, React Native, Node, JavaScript", "MySQL"],
+};
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -13,7 +26,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <JobCard />
+        <JobCard cardData={sampleCardData} />
       </main>
     </div>
   );

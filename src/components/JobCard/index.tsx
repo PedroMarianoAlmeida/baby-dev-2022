@@ -16,8 +16,23 @@ interface JobCardProps {
 }
 
 const JobCard = ({ cardData }: JobCardProps) => {
-  console.log(cardData);
-  return <h2 className={styles.error}>Job Card</h2>;
+  const { company, job, stack } = cardData;
+  const { logo, name } = company;
+  const { title, place } = job;
+
+  return (
+    <div>
+      <img src={logo} />
+      <h4>{name}</h4>
+      <h3>{title}</h3>
+      <h4>{place}</h4>
+      <div>
+        {stack.map((tec) => (
+          <h6>{tec}</h6>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default JobCard;

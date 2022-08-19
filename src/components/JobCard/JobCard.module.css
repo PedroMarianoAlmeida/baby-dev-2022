@@ -1,3 +1,40 @@
-.error {
-  color: red;
+#root {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+#name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #202020;
+}
+
+#title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #210037;
+}
+
+#place {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #202020;
+}
+
+#stack {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 10px;
+
+  color: #202020;
 }

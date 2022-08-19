@@ -21,12 +21,12 @@ const JobCard = ({ cardData }: JobCardProps) => {
   const { title, place } = job;
 
   return (
-    <div>
-      <img src={logo} />
-      <h4>{name}</h4>
-      <h3>{title}</h3>
-      <h4>{place}</h4>
-      <div>
+    <div id={styles.root}>
+      <img id={styles.logo} src={logo} />
+      <h4 id={styles.name}>{name}</h4>
+      <h3 id={styles.title}>{title}</h3>
+      <h5 id={styles.place}>{place}</h5>
+      <div id={styles.stack}>
         {stack.map((tec) => (
           <h6>{tec}</h6>
         ))}

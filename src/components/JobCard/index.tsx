@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./JobCard.module.css";
 
 interface JobCardProps {
@@ -22,7 +23,7 @@ const JobCard = ({ cardData }: JobCardProps) => {
 
   return (
     <div id={styles.root}>
-      <img id={styles.logo} src={logo} />
+      <Image id={styles.logo} src={logo} height={44} width={44} />
       <h4 id={styles.name}>{name}</h4>
       <h3 id={styles.title}>{title}</h3>
       <h5 id={styles.place}>{place}</h5>

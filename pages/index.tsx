@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 
 const sampleCardData = {
   company: {
-    logo: "",
+    logo: "https://logodownload.org/wp-content/uploads/2017/05/ifood-logo-0.png",
     name: "iFood",
   },
   job: {

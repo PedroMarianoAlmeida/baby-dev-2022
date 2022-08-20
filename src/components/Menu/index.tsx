@@ -15,7 +15,7 @@ const Menu = () => {
           onClick={() => setShowMenu(!showMenu)}
         />
         {showMenu ? (
-          <nav onMouseLeave={() => setShowMenu(false)}>
+          <nav id={styles.nav} onMouseLeave={() => setShowMenu(false)}>
             <ul id={styles.menuContainer}>
               <li className={styles.menuItem}>Home 🏠</li>
               <li className={styles.menuItem}>Busca 🔍</li>

@@ -8,6 +8,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
+}
+
+#nav {
+  position: absolute;
+  top: 21.5px;
 }
 
 #menuContainer {

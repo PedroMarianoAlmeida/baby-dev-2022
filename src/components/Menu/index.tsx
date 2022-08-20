@@ -4,10 +4,15 @@ import styles from "./Menu.module.css";
 
 const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { root, logoSpan, navContainer, nav, menuContainer, menuItem, hr } =
+    styles;
   return (
-    <div id={styles.root}>
-      <div>👶💻</div>
-      <div id={styles.navContainer}>
+    <div id={root}>
+      <div>
+        <span id={logoSpan}>👶</span>
+        💻
+      </div>
+      <div id={navContainer}>
         <Image
           src={"/icons/menu-burger.svg"}
           width={18}
@@ -15,14 +20,14 @@ const Menu = () => {
           onClick={() => setShowMenu(!showMenu)}
         />
         {showMenu ? (
-          <nav id={styles.nav} onMouseLeave={() => setShowMenu(false)}>
-            <ul id={styles.menuContainer}>
-              <li className={styles.menuItem}>Home 🏠</li>
-              <li className={styles.menuItem}>Busca 🔍</li>
-              <li className={styles.menuItem}>Parceiros 🤝</li>
-              <li className={styles.menuItem}>Contato 📞</li>
-              <hr id={styles.hr} />
-              <li className={styles.menuItem}>Login</li>
+          <nav id={nav} onMouseLeave={() => setShowMenu(false)}>
+            <ul id={menuContainer}>
+              <li className={menuItem}>Home 🏠</li>
+              <li className={menuItem}>Busca 🔍</li>
+              <li className={menuItem}>Parceiros 🤝</li>
+              <li className={menuItem}>Contato 📞</li>
+              <hr id={hr} />
+              <li className={menuItem}>Login</li>
             </ul>
           </nav>
         ) : null}

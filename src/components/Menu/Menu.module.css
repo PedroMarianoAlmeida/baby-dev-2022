@@ -4,6 +4,10 @@
   padding: 16px 22px;
 }
 
+#logoSpan {
+  margin-right: 12px;
+}
+
 #navContainer {
   display: flex;
   flex-direction: column;

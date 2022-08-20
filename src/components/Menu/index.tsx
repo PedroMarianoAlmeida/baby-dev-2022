@@ -21,6 +21,7 @@ const Menu = () => {
               <li className={styles.menuItem}>Busca 🔍</li>
               <li className={styles.menuItem}>Parceiros 🤝</li>
               <li className={styles.menuItem}>Contato 📞</li>
+              <hr id={styles.hr} />
               <li className={styles.menuItem}>Login</li>
             </ul>
           </nav>

@@ -44,6 +44,7 @@
 
   text-align: center;
   padding: 15px 0;
+  cursor: pointer;
 }
 
 .menuItem:hover {
@@ -66,6 +67,7 @@
   grid-template-areas:
     "welcome avatar"
     "logout avatar";
+  cursor: default;
 }
 
 #welcome {
@@ -74,6 +76,7 @@
 
 #logout {
   grid-area: logout;
+  cursor: pointer;
 }
 
 #avatar {

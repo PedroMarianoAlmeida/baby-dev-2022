@@ -27,6 +27,7 @@
 
   width: 112px;
   padding: 0;
+  overflow: hidden;
 }
 
 .menuItem {

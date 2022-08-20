@@ -54,4 +54,6 @@
   grid-area: stack;
 
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }

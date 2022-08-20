@@ -59,4 +59,6 @@
   color: #202020;
 
   grid-area: stack;
+
+  display: flex;
 }

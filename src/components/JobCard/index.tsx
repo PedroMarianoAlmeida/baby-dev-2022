@@ -1,4 +1,5 @@
 import Image from "next/image";
+import StackBadge from "../StackBadge";
 import styles from "./JobCard.module.css";
 
 interface JobCardProps {
@@ -35,7 +36,7 @@ const JobCard = ({ cardData }: JobCardProps) => {
       <h5 id={styles.place}>{place}</h5>
       <div id={styles.stack}>
         {stack.map((tec) => (
-          <h6>{tec}</h6>
+          <StackBadge name={tec} key={tec} />
         ))}
       </div>
     </div>

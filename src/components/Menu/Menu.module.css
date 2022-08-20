@@ -54,3 +54,8 @@
   border: 1px solid #cccaca;
   margin: 0;
 }
+
+#notLogged {
+  text-align: right;
+  margin-right: 22px;
+}

@@ -1,6 +1,20 @@
 #root {
   background: #f0f0f0;
   border-radius: 5px;
+
+  padding: 12px;
+  width: 100%;
+  max-width: 358px;
+
+  display: grid;
+  grid-template-areas:
+    "logo name place"
+    "logo title title"
+    "stack stack stack";
+}
+
+#logo {
+  grid-area: logo;
 }
 
 #name {
@@ -10,6 +24,8 @@
   line-height: 17px;
 
   color: #202020;
+
+  grid-area: name;
 }
 
 #title {
@@ -19,6 +35,8 @@
   line-height: 20px;
 
   color: #210037;
+
+  grid-area: title;
 }
 
 #place {
@@ -28,6 +46,8 @@
   line-height: 15px;
 
   color: #202020;
+
+  grid-area: place;
 }
 
 #stack {
@@ -37,4 +57,6 @@
   line-height: 10px;
 
   color: #202020;
+
+  grid-area: stack;
 }

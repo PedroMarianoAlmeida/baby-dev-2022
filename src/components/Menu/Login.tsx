@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Menu.module.css";
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true); //Change back after Login implementation
 
   const handleLogin = () => setIsLogin(true);
   const handleLogout = () => setIsLogin(false);
@@ -35,14 +35,17 @@ const LoginUI = ({
   handleLogout,
 }: LoginUiProps) => {
   const { name, image } = userData;
-  const { menuItem, notLogged } = styles;
+  const { menuItem, notLogged, loggedContainer, welcome, logout, avatar } =
+    styles;
   return (
     <li className={menuItem}>
       {isLogged ? (
-        <div>
-          <div>Oi, {name}</div>
-          <p onClick={handleLogout}>Log out</p>
-          <Image src={image} width={22} height={22} />
+        <div id={loggedContainer}>
+          <div id={welcome}>Oi, {name}</div>
+          <p id={logout} onClick={handleLogout}>
+            Log out
+          </p>
+          <Image id={avatar} src={image} width={22} height={22} />
         </div>
       ) : (
         <div id={notLogged} onClick={handleLogin}>

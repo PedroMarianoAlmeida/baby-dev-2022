@@ -60,3 +60,22 @@
   text-align: right;
   margin-right: 22px;
 }
+
+#loggedContainer {
+  display: grid;
+  grid-template-areas:
+    "welcome avatar"
+    "logout avatar";
+}
+
+#welcome {
+  grid-area: welcome;
+}
+
+#logout {
+  grid-area: logout;
+}
+
+#avatar {
+  grid-area: avatar;
+}

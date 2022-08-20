@@ -21,7 +21,19 @@ const Login = () => {
   );
 };
 
-const LoginUI = ({ isLogged, userData, handleLogin, handleLogout }) => {
+interface LoginUiProps {
+  isLogged: boolean;
+  userData: { name: string; image: string };
+  handleLogin(): void;
+  handleLogout(): void;
+}
+
+const LoginUI = ({
+  isLogged,
+  userData,
+  handleLogin,
+  handleLogout,
+}: LoginUiProps) => {
   const { name, image } = userData;
   const { menuItem, notLogged } = styles;
   return (

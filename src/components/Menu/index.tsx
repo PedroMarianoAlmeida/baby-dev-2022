@@ -3,9 +3,10 @@ import Image from "next/image";
 import styles from "./Menu.module.css";
 
 import useDebounce from "./../../hooks/useDebounce";
+import Login from "./Login";
 
 const Menu = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true); //Change back before Login implementation
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
 
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
@@ -45,7 +46,7 @@ const Menu = () => {
               <li className={menuItem}>Parceiros 🤝</li>
               <li className={menuItem}>Contato 📞</li>
               <hr id={hr} />
-              <li className={menuItem}>Login</li>
+              <Login />
             </ul>
           </nav>
         ) : null}

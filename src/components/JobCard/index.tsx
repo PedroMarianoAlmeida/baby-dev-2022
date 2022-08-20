@@ -23,7 +23,13 @@ const JobCard = ({ cardData }: JobCardProps) => {
 
   return (
     <div id={styles.root}>
-      <Image id={styles.logo} src={logo} height={44} width={44} />
+      <Image
+        id={styles.logo}
+        src={logo}
+        layout="responsive"
+        width={44}
+        height={44}
+      />
       <h4 id={styles.name}>{name}</h4>
       <h3 id={styles.title}>{title}</h3>
       <h5 id={styles.place}>{place}</h5>

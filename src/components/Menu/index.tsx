@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Menu.module.css";
 
+import useDebounce from "./../../hooks/useDebounce";
+
 const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
+
+  const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
+
+  useEffect(() => {
+    if (debouncedIsMouseLeavesMenu) {
+      setShowMenu(false);
+      setIsMouseLeavesMenu(false);
+    }
+  }, [debouncedIsMouseLeavesMenu]);
+
   const { root, logoSpan, navContainer, nav, menuContainer, menuItem, hr } =
     styles;
+
   return (
     <div id={root}>
       <div>
@@ -20,7 +34,11 @@ const Menu = () => {
           onClick={() => setShowMenu(!showMenu)}
         />
         {showMenu ? (
-          <nav id={nav} onMouseLeave={() => setShowMenu(false)}>
+          <nav
+            id={nav}
+            onMouseLeave={() => setIsMouseLeavesMenu(true)}
+            onMouseEnter={() => setIsMouseLeavesMenu(false)}
+          >
             <ul id={menuContainer}>
               <li className={menuItem}>Home 🏠</li>
               <li className={menuItem}>Busca 🔍</li>

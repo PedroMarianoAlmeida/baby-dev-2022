@@ -13,7 +13,7 @@ const sampleCardData = {
     place: "SP/Remoto",
   },
 
-  stack: ["HTML,, React Native, Node, JavaScript", "MySQL"],
+  stack: ["HTML", "React Native", "Node", "JavaScript", "MySQL"],
 };
 
 const Home: NextPage = () => {

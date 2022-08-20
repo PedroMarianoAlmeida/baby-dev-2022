@@ -1,19 +1,27 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./Menu.module.css";
 
 const Login = () => {
+  const [isLogin, setIsLogin] = useState(false);
+
+  const handleLogin = () => setIsLogin(true);
+  const handleLogout = () => setIsLogin(false);
+
   return (
     <LoginUI
-      isLogged={true}
+      isLogged={isLogin}
       userData={{
         name: "Sarah",
         image: "/sample/login-avatar.png",
       }}
+      handleLogin={handleLogin}
+      handleLogout={handleLogout}
     />
   );
 };
 
-const LoginUI = ({ isLogged, userData }) => {
+const LoginUI = ({ isLogged, userData, handleLogin, handleLogout }) => {
   const { name, image } = userData;
   const { menuItem, notLogged } = styles;
   return (
@@ -21,11 +29,13 @@ const LoginUI = ({ isLogged, userData }) => {
       {isLogged ? (
         <div>
           <div>Oi, {name}</div>
-          <p>Log out</p>
+          <p onClick={handleLogout}>Log out</p>
           <Image src={image} width={22} height={22} />
         </div>
       ) : (
-        <div id={notLogged}>Login</div>
+        <div id={notLogged} onClick={handleLogin}>
+          Login
+        </div>
       )}
     </li>
   );

@@ -63,13 +63,13 @@
 }
 
 #loggedContainer {
-  padding: 0 12px;
   display: grid;
   grid-template-areas:
     "welcome avatar"
     "logout avatar";
 
   cursor: default;
+  padding: 0;
 }
 
 #welcome {

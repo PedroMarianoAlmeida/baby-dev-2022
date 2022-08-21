@@ -45,7 +45,9 @@ const LoginUI = ({
           <p id={logout} onClick={handleLogout}>
             Log out
           </p>
-          <Image id={avatar} src={image} width={22} height={22} />
+          <div id={avatar}>
+            <Image src={image} width={22} height={22} />
+          </div>
         </div>
       ) : (
         <div id={notLogged} onClick={handleLogin}>

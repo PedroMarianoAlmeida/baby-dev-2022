@@ -2,6 +2,12 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 22px;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #210037;
+  z-index: 2;
 }
 
 #logoSpan {

@@ -1,5 +1,5 @@
 #root {
-  color: red;
+  position: relative;
 }
 
 #searchContainer {
@@ -26,4 +26,9 @@
   background: #f0f0f0;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
+
+  position: absolute;
+  top: 48px;
+  left: 0;
+  z-index: 2;
 }

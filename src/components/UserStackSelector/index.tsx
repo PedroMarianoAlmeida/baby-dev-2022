@@ -8,10 +8,10 @@ const UserStackSelector = () => {
 
 const UserStackSelectorUI = () => {
   const [showOptions, setShowOptions] = useState(false);
-  const { searchContainer, stackContainer } = styles;
+  const { root, searchContainer, stackContainer } = styles;
 
   return (
-    <div>
+    <div id={root}>
       <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
         <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
       </div>

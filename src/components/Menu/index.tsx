@@ -6,7 +6,7 @@ import useDebounce from "./../../hooks/useDebounce";
 import Login from "./Login";
 
 const Menu = () => {
-  const [showMenu, setShowMenu] = useState(true); //Change back after Login implementation
+  const [showMenu, setShowMenu] = useState(false);
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
 
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);

@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Menu.module.css";
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true); //Change back after Login implementation
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleLogin = () => setIsLogin(true);
   const handleLogout = () => setIsLogin(false);

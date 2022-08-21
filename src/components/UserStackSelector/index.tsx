@@ -3,11 +3,21 @@ import Image from "next/image";
 import styles from "./UserStackSelector.module.css";
 import useDebounce from "src/hooks/useDebounce";
 
+const initialSelected = [
+  { id: "html", name: "html" },
+  { id: "react_native", name: "React Native" },
+  { id: "javascript", name: "JavaScript" },
+];
 const UserStackSelector = () => {
-  return <UserStackSelectorUI />;
+  const [selected, setSelected] = useState(initialSelected);
+  return <UserStackSelectorUI selected={selected} />;
 };
 
-const UserStackSelectorUI = () => {
+interface UserStackSelectorUiProps {
+  selected: { id: string; name: string }[];
+}
+
+const UserStackSelectorUI = ({ selected }: UserStackSelectorUiProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
@@ -25,6 +35,11 @@ const UserStackSelectorUI = () => {
     <div id={root}>
       <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
         <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
+        <div>
+          {selected.map((stack) => (
+            <p key={stack.id}>{stack.name}</p>
+          ))}
+        </div>
       </div>
       {showOptions ? (
         <div

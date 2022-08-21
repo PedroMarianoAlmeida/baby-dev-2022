@@ -6,13 +6,13 @@ const UserStackSelector = () => {
 };
 
 const UserStackSelectorUI = () => {
-  const { searchContainer } = styles;
+  const { searchContainer, stackContainer } = styles;
   return (
     <div>
       <div id={searchContainer}>
         <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
       </div>
-      <h2>UserStackSelector</h2>
+      <div id={stackContainer}></div>
     </div>
   );
 };

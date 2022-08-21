@@ -16,3 +16,14 @@
 
   padding: 15px 12px;
 }
+
+#stackContainer {
+  width: 372px;
+  height: 300px;
+  left: 196px;
+  top: 146px;
+
+  background: #f0f0f0;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
+}

@@ -39,7 +39,7 @@ const UserStackSelectorUI = ({ selected }: UserStackSelectorUiProps) => {
         <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
         <div id={selectedContainer}>
           {selected.map((stack) => (
-            <StackBadge key={stack.id} name={stack.name} />
+            <StackBadge key={stack.id} name={stack.name} isSelected/>
           ))}
         </div>
       </div>

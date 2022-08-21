@@ -63,22 +63,32 @@
 }
 
 #loggedContainer {
+  padding: 0 12px;
   display: grid;
   grid-template-areas:
     "welcome avatar"
     "logout avatar";
+
   cursor: default;
 }
 
 #welcome {
   grid-area: welcome;
+  justify-self: end;
 }
 
 #logout {
   grid-area: logout;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 10px;
+  text-decoration-line: underline;
+  justify-self: end;
 }
 
 #avatar {
   grid-area: avatar;
+  justify-self: center;
+  align-self: center;
 }

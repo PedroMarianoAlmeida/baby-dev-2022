@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import JobCard from "../src/components/JobCard";
+import UserStackSelector from "../src/components/UserStackSelector";
 import styles from "../styles/Home.module.css";
 
 const sampleCardData = {
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <UserStackSelector />
         <JobCard cardData={sampleCardData} />
       </main>
     </div>

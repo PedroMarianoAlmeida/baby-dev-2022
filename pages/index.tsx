@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <UserStackSelector />
-        <JobCard cardData={sampleCardData} />
+        {/* <JobCard cardData={sampleCardData} /> */}
       </main>
     </div>
   );

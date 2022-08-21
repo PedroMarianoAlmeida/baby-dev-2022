@@ -1,5 +1,5 @@
 import Image from "next/image";
-import StackBadge from "../StackBadge";
+import StackBadge from "src/components/StackBadge";
 import styles from "./JobCard.module.css";
 
 interface JobCardProps {

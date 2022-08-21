@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./UserStackSelector.module.css";
+
+import StackBadge from "src/components/StackBadge";
 import useDebounce from "src/hooks/useDebounce";
 
 const initialSelected = [
@@ -22,7 +24,7 @@ const UserStackSelectorUI = ({ selected }: UserStackSelectorUiProps) => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
 
-  const { root, searchContainer, stackContainer } = styles;
+  const { root, searchContainer, selectedContainer, stackContainer } = styles;
 
   useEffect(() => {
     if (debouncedIsMouseLeavesMenu) {
@@ -35,9 +37,9 @@ const UserStackSelectorUI = ({ selected }: UserStackSelectorUiProps) => {
     <div id={root}>
       <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
         <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
-        <div>
+        <div id={selectedContainer}>
           {selected.map((stack) => (
-            <p key={stack.id}>{stack.name}</p>
+            <StackBadge key={stack.id} name={stack.name} />
           ))}
         </div>
       </div>

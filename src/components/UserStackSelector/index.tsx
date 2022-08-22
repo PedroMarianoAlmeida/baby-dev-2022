@@ -12,19 +12,31 @@ const initialSelected = [
 ];
 const UserStackSelector = () => {
   const [selected, setSelected] = useState(initialSelected);
-  return <UserStackSelectorUI selected={selected} />;
+
+  const removeSelected = (id: string) => {
+    const newSelected = selected.filter((stack) => stack.id !== id);
+    setSelected(newSelected);
+  };
+
+  return (
+    <UserStackSelectorUI selected={selected} removeSelected={removeSelected} />
+  );
 };
 
 interface UserStackSelectorUiProps {
   selected: { id: string; name: string }[];
+  removeSelected(id: string): void;
 }
 
-const UserStackSelectorUI = ({ selected }: UserStackSelectorUiProps) => {
+const UserStackSelectorUI = ({
+  selected,
+  removeSelected,
+}: UserStackSelectorUiProps) => {
   const [showOptions, setShowOptions] = useState(false);
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
 
-  const { root, searchContainer, selectedContainer, stackContainer } = styles;
+  const { root, searchContainer, selectedContainer, stackBadgeContainer, stackContainer } = styles;
 
   useEffect(() => {
     if (debouncedIsMouseLeavesMenu) {
@@ -33,15 +45,29 @@ const UserStackSelectorUI = ({ selected }: UserStackSelectorUiProps) => {
     }
   }, [debouncedIsMouseLeavesMenu]);
 
+  const handleRemoveSelected = (
+    e: React.SyntheticEvent<EventTarget>,
+    id: string
+  ) => {
+    removeSelected(id);
+    e.stopPropagation();
+  };
+
   return (
     <div id={root}>
       <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
         <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
         <div id={selectedContainer}>
           {selected.map((stack) => (
-            <StackBadge key={stack.id} name={stack.name}>
-              <Image src={"/icons/close.svg"} width={8} height={8} />
-            </StackBadge>
+            <div
+              onClick={(e) => handleRemoveSelected(e, stack.id)}
+              key={stack.id}
+              id={stackBadgeContainer}
+            >
+              <StackBadge name={stack.name}>
+                <Image src={"/icons/close.svg"} width={8} height={8} />
+              </StackBadge>
+            </div>
           ))}
         </div>
       </div>

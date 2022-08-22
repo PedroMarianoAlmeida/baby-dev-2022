@@ -1,59 +1,53 @@
 #root {
   background: #f0f0f0;
   border-radius: 5px;
-
-  padding: 12px;
   width: 100%;
   max-width: 358px;
+  padding: 10px;
+  position: relative;
+}
 
-  display: grid;
-  grid-template-areas:
-    "logo name place"
-    "logo title title"
-    "stack stack stack";
+#content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#logoTitle {
+  display: flex;
 }
 
 #logo {
-  grid-area: logo;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  align-self: center;
+  margin-right: 5px;
 }
 
 #name {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-
   color: #202020;
+  margin: 0;
+}
 
-  grid-area: name;
+#job {
+  margin: 0;
 }
 
 #title {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-
   color: #210037;
-
-  grid-area: title;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: .9rem;
 }
 
 #place {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-
   color: #202020;
-
-  grid-area: place;
+  margin: 10px;
 }
 
 #stack {
-  grid-area: stack;
-
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
 }

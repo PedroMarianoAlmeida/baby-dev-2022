@@ -4,7 +4,7 @@
 
 #searchContainer {
   width: 432px;
-  height: 44px;
+  min-height: 44px;
   left: 196px;
   top: 98px;
 
@@ -12,12 +12,17 @@
   border: 1px solid #f0f0f0;
   border-radius: 30px;
   display: flex;
+  align-items: center;
 
   padding: 15px 12px;
 }
 
 #selectedContainer {
+  margin-left: 12px;
+
   display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 #stackContainer {

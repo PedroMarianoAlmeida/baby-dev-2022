@@ -58,6 +58,11 @@
   color: #e9e9e9;
 }
 
+.menuItemLink {
+  text-decoration: none;
+  color: #202020;
+}
+
 #hr {
   border: 1px solid #cccaca;
   margin: 0;

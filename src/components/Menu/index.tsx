@@ -4,6 +4,7 @@ import styles from "./Menu.module.css";
 
 import useDebounce from "src/hooks/useDebounce";
 import Login from "./Login";
+import MenuItem from "./MenuItem";
 
 const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -41,10 +42,10 @@ const Menu = () => {
             onMouseEnter={() => setIsMouseLeavesMenu(false)}
           >
             <ul id={menuContainer}>
-              <li className={menuItem}>Home 🏠</li>
-              <li className={menuItem}>Busca 🔍</li>
-              <li className={menuItem}>Parceiros 🤝</li>
-              <li className={menuItem}>Contato 📞</li>
+              <MenuItem href="/" text="Home 🏠" />
+              <MenuItem href="/vagas" text="Vagas 🔍" />
+              <MenuItem href="/parcceiros" text="Parceiros 🤝" />
+              <MenuItem href="/contatos" text="Contato 📞" />
               <hr id={hr} />
               <Login />
             </ul>

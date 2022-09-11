@@ -12,14 +12,28 @@ const initialSelected = [
 ];
 const UserStackSelector = () => {
   const [selected, setSelected] = useState(initialSelected);
+  const [showOptions, setShowOptions] = useState(false);
 
   const removeSelected = (id: string) => {
     const newSelected = selected.filter((stack) => stack.id !== id);
     setSelected(newSelected);
   };
 
+  const { root } = styles;
+
   return (
-    <TopContainer selected={selected} removeSelected={removeSelected} />
+    <div id={root}>
+      <TopContainer
+        selected={selected}
+        removeSelected={removeSelected}
+        showOptions={showOptions}
+        setShowOptions={setShowOptions}
+      />
+      <BottomContainer
+        showOptions={showOptions}
+        setShowOptions={setShowOptions}
+      />
+    </div>
   );
 };
 
@@ -31,9 +45,9 @@ interface UserStackSelectorUiProps {
 const TopContainer = ({
   selected,
   removeSelected,
-}: UserStackSelectorUiProps) => {
-  const [showOptions, setShowOptions] = useState(false);
-
+  showOptions,
+  setShowOptions,
+}) => {
   const {
     root,
     searchContainer,
@@ -51,27 +65,21 @@ const TopContainer = ({
   };
 
   return (
-    <div id={root}>
-      <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
-        <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
-        <div id={selectedContainer}>
-          {selected.map((stack) => (
-            <div
-              onClick={(e) => handleRemoveSelected(e, stack.id)}
-              key={stack.id}
-              id={stackBadgeContainer}
-            >
-              <StackBadge name={stack.name}>
-                <Image src={"/icons/close.svg"} width={8} height={8} />
-              </StackBadge>
-            </div>
-          ))}
-        </div>
+    <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
+      <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
+      <div id={selectedContainer}>
+        {selected.map((stack) => (
+          <div
+            onClick={(e) => handleRemoveSelected(e, stack.id)}
+            key={stack.id}
+            id={stackBadgeContainer}
+          >
+            <StackBadge name={stack.name}>
+              <Image src={"/icons/close.svg"} width={8} height={8} />
+            </StackBadge>
+          </div>
+        ))}
       </div>
-      <BottomContainer
-        showOptions={showOptions}
-        setShowOptions={setShowOptions}
-      />
     </div>
   );
 };

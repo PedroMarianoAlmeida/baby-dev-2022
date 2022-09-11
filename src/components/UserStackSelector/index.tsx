@@ -19,7 +19,7 @@ const UserStackSelector = () => {
   };
 
   return (
-    <UserStackSelectorUI selected={selected} removeSelected={removeSelected} />
+    <TopContainer selected={selected} removeSelected={removeSelected} />
   );
 };
 
@@ -28,7 +28,7 @@ interface UserStackSelectorUiProps {
   removeSelected(id: string): void;
 }
 
-const UserStackSelectorUI = ({
+const TopContainer = ({
   selected,
   removeSelected,
 }: UserStackSelectorUiProps) => {

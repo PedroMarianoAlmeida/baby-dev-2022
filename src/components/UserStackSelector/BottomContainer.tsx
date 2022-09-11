@@ -3,7 +3,15 @@ import { useEffect, useState } from "react";
 import useDebounce from "src/hooks/useDebounce";
 import styles from "./UserStackSelector.module.css";
 
-const BottomContainer = ({ showOptions, setShowOptions }) => {
+interface BottomContainerProps {
+  showOptions: boolean;
+  setShowOptions(option: boolean): void;
+}
+
+const BottomContainer = ({
+  showOptions,
+  setShowOptions,
+}: BottomContainerProps) => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
 

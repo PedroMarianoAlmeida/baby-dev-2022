@@ -13,3 +13,7 @@ body {
 #myapp-container {
   margin-top: 55.2px;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

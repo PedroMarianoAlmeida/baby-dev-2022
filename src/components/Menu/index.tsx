@@ -20,19 +20,21 @@ const Menu = () => {
     }
   }, [debouncedIsMouseLeavesMenu]);
 
-  const { root, logoSpan, navContainer, nav, menuContainer, menuItem, hr } =
-    styles;
+  const { root, navContainer, nav, menuContainer, hr } = styles;
 
   return (
     <div id={root}>
       <Logo />
       <div id={navContainer}>
-        <Image
-          src={"/icons/menu-burger.svg"}
-          width={18}
-          height={18}
-          onClick={() => setShowMenu(!showMenu)}
-        />
+        <div className="cursor-pointer">
+          <Image
+            src={"/icons/menu-burger.svg"}
+            width={18}
+            height={18}
+            onClick={() => setShowMenu(!showMenu)}
+          />
+        </div>
+
         {showMenu ? (
           <nav
             id={nav}

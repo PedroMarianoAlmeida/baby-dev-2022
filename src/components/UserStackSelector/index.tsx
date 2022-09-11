@@ -33,17 +33,14 @@ const UserStackSelectorUI = ({
   removeSelected,
 }: UserStackSelectorUiProps) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
-  const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
 
-  const { root, searchContainer, selectedContainer, stackBadgeContainer, stackContainer } = styles;
-
-  useEffect(() => {
-    if (debouncedIsMouseLeavesMenu) {
-      setShowOptions(false);
-      setIsMouseLeavesMenu(false);
-    }
-  }, [debouncedIsMouseLeavesMenu]);
+  const {
+    root,
+    searchContainer,
+    selectedContainer,
+    stackBadgeContainer,
+    stackContainer,
+  } = styles;
 
   const handleRemoveSelected = (
     e: React.SyntheticEvent<EventTarget>,
@@ -71,6 +68,27 @@ const UserStackSelectorUI = ({
           ))}
         </div>
       </div>
+      <BottomContainer
+        showOptions={showOptions}
+        setShowOptions={setShowOptions}
+      />
+    </div>
+  );
+};
+const BottomContainer = ({ showOptions, setShowOptions }) => {
+  const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
+  const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
+
+  useEffect(() => {
+    if (debouncedIsMouseLeavesMenu) {
+      setShowOptions(false);
+      setIsMouseLeavesMenu(false);
+    }
+  }, [debouncedIsMouseLeavesMenu]);
+
+  const { stackContainer } = styles;
+  return (
+    <>
       {showOptions ? (
         <div
           id={stackContainer}
@@ -78,8 +96,7 @@ const UserStackSelectorUI = ({
           onMouseEnter={() => setIsMouseLeavesMenu(false)}
         ></div>
       ) : null}
-    </div>
+    </>
   );
 };
-
 export default UserStackSelector;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import styles from "./UserStackSelector.module.css";
 
-import StackBadge from "src/components/StackBadge";
+import styles from "./UserStackSelector.module.css";
 import useDebounce from "src/hooks/useDebounce";
+
+import TopContainer from "./TopContainer";
 
 const initialSelected = [
   { id: "html", name: "html" },
@@ -37,52 +37,6 @@ const UserStackSelector = () => {
   );
 };
 
-interface UserStackSelectorUiProps {
-  selected: { id: string; name: string }[];
-  removeSelected(id: string): void;
-}
-
-const TopContainer = ({
-  selected,
-  removeSelected,
-  showOptions,
-  setShowOptions,
-}) => {
-  const {
-    root,
-    searchContainer,
-    selectedContainer,
-    stackBadgeContainer,
-    stackContainer,
-  } = styles;
-
-  const handleRemoveSelected = (
-    e: React.SyntheticEvent<EventTarget>,
-    id: string
-  ) => {
-    removeSelected(id);
-    e.stopPropagation();
-  };
-
-  return (
-    <div id={searchContainer} onClick={() => setShowOptions(!showOptions)}>
-      <Image src={"/icons/magnifying-glass.svg"} width={22} height={22} />
-      <div id={selectedContainer}>
-        {selected.map((stack) => (
-          <div
-            onClick={(e) => handleRemoveSelected(e, stack.id)}
-            key={stack.id}
-            id={stackBadgeContainer}
-          >
-            <StackBadge name={stack.name}>
-              <Image src={"/icons/close.svg"} width={8} height={8} />
-            </StackBadge>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 const BottomContainer = ({ showOptions, setShowOptions }) => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);

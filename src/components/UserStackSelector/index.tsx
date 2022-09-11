@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import styles from "./UserStackSelector.module.css";
-import useDebounce from "src/hooks/useDebounce";
 
 import TopContainer from "./TopContainer";
+import BottomContainer from "./BottomContainer";
 
 const initialSelected = [
   { id: "html", name: "html" },
@@ -37,28 +37,4 @@ const UserStackSelector = () => {
   );
 };
 
-const BottomContainer = ({ showOptions, setShowOptions }) => {
-  const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
-  const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
-
-  useEffect(() => {
-    if (debouncedIsMouseLeavesMenu) {
-      setShowOptions(false);
-      setIsMouseLeavesMenu(false);
-    }
-  }, [debouncedIsMouseLeavesMenu]);
-
-  const { stackContainer } = styles;
-  return (
-    <>
-      {showOptions ? (
-        <div
-          id={stackContainer}
-          onMouseLeave={() => setIsMouseLeavesMenu(true)}
-          onMouseEnter={() => setIsMouseLeavesMenu(false)}
-        ></div>
-      ) : null}
-    </>
-  );
-};
 export default UserStackSelector;

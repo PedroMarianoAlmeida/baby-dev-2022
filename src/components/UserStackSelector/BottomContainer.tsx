@@ -6,11 +6,13 @@ import styles from "./UserStackSelector.module.css";
 interface BottomContainerProps {
   showOptions: boolean;
   setShowOptions(option: boolean): void;
+  options: { name: string; stack: string[] }[];
 }
 
 const BottomContainer = ({
   showOptions,
   setShowOptions,
+  options,
 }: BottomContainerProps) => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);

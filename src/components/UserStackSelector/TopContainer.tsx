@@ -3,12 +3,19 @@ import Image from "next/image";
 import styles from "./UserStackSelector.module.css";
 import StackBadge from "src/components/StackBadge";
 
+interface TopContainerProps {
+  selected: { id: string; name: string }[];
+  removeSelected(id: string): void;
+  showOptions: boolean;
+  setShowOptions(option: boolean): void;
+}
+
 const TopContainer = ({
   selected,
   removeSelected,
   showOptions,
   setShowOptions,
-}) => {
+}: TopContainerProps) => {
   const { searchContainer, selectedContainer, stackBadgeContainer } = styles;
 
   const handleRemoveSelected = (

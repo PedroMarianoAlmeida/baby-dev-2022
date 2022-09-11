@@ -5,6 +5,7 @@ import styles from "./Menu.module.css";
 import useDebounce from "src/hooks/useDebounce";
 import Login from "./Login";
 import MenuItem from "./MenuItem";
+import Logo from "./Logo";
 
 const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -24,10 +25,7 @@ const Menu = () => {
 
   return (
     <div id={root}>
-      <div>
-        <span id={logoSpan}>👶</span>
-        💻
-      </div>
+      <Logo />
       <div id={navContainer}>
         <Image
           src={"/icons/menu-burger.svg"}

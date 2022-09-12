@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import useDebounce from "src/hooks/useDebounce";
 import styles from "./UserStackSelector.module.css";
+import StackBadge from "src/components/StackBadge";
 
 interface BottomContainerProps {
   showOptions: boolean;
@@ -34,7 +35,7 @@ const BottomContainer = ({
           onMouseEnter={() => setIsMouseLeavesMenu(false)}
         >
           {options.map((optionGroup) => (
-            <OptionGroup optionGroup={optionGroup} />
+            <OptionGroup key={optionGroup.name} optionGroup={optionGroup} />
           ))}
         </div>
       ) : null}
@@ -42,11 +43,19 @@ const BottomContainer = ({
   );
 };
 
-const OptionGroup = ({ optionGroup }) => {
+interface OptionGroupProps {
+  optionGroup: { name: string; stack: string[] };
+}
+
+const OptionGroup = ({ optionGroup }: OptionGroupProps) => {
   const { name, stack } = optionGroup;
+
   return (
     <>
       <h4>{name}</h4>
+      {stack.map((option) => (
+        <StackBadge name={option} key={`${name}-${option}`} />
+      ))}
     </>
   );
 };

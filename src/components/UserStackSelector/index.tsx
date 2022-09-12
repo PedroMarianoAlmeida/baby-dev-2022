@@ -18,7 +18,17 @@ const allOptions = [
   },
   {
     name: "Frontend",
-    stack: ["HTML", "CSS", "React", "Angular", "Vue", "Svelte", "Next"],
+    stack: [
+      "HTML",
+      "CSS",
+      "React",
+      "Angular",
+      "Vue",
+      "Svelte",
+      "Next",
+      "Nuxt",
+      "Oxygen",
+    ],
   },
   {
     name: "Backend",

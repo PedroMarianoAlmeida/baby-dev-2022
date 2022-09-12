@@ -35,6 +35,7 @@ const TopContainer = ({
             onClick={(e) => handleRemoveSelected(e, stack.id)}
             key={stack.id}
             id={stackBadgeContainer}
+            className="cursor-pointer"
           >
             <StackBadge name={stack.name}>
               <Image src={"/icons/close.svg"} width={8} height={8} />

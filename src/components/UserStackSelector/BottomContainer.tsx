@@ -50,12 +50,15 @@ interface OptionGroupProps {
 const OptionGroup = ({ optionGroup }: OptionGroupProps) => {
   const { name, stack } = optionGroup;
 
+  const { stacksGroupContainer } = styles;
   return (
     <>
       <h4>{name}</h4>
-      {stack.map((option) => (
-        <StackBadge name={option} key={`${name}-${option}`} />
-      ))}
+      <div className={stacksGroupContainer}>
+        {stack.map((option) => (
+          <StackBadge name={option} key={`${name}-${option}`} />
+        ))}
+      </div>
     </>
   );
 };

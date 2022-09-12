@@ -5,7 +5,7 @@ import styles from "./UserStackSelector.module.css";
 import TopContainer from "./TopContainer";
 import BottomContainer from "./BottomContainer";
 
-const initialSelected = ["html", "React Native", "JavaScript"];
+const initialSelected = ["HTML", "React Native", "JavaScript"];
 
 const allOptions = [
   {
@@ -29,6 +29,10 @@ const allOptions = [
   {
     name: "Backend",
     stack: ["Node", "Laravel", "Elixir", "Springboot", "Ruby on Rails"],
+  },
+  {
+    name: "Mobile",
+    stack: ["React Native", "Flutter", "Android", "iOS", "Ionic"],
   },
   {
     name: "Low Code",
@@ -63,6 +67,7 @@ const UserStackSelector = () => {
         showOptions={showOptions}
         setShowOptions={setShowOptions}
         options={allOptions}
+        selected={selected}
       />
     </div>
   );

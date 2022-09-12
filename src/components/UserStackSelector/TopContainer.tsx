@@ -4,7 +4,7 @@ import styles from "./UserStackSelector.module.css";
 import StackBadge from "src/components/StackBadge";
 
 interface TopContainerProps {
-  selected: { id: string; name: string }[];
+  selected:  string [];
   removeSelected(id: string): void;
   showOptions: boolean;
   setShowOptions(option: boolean): void;
@@ -32,12 +32,12 @@ const TopContainer = ({
       <div id={selectedContainer}>
         {selected.map((stack) => (
           <div
-            onClick={(e) => handleRemoveSelected(e, stack.id)}
-            key={stack.id}
+            onClick={(e) => handleRemoveSelected(e, stack)}
+            key={stack}
             id={stackBadgeContainer}
             className="cursor-pointer"
           >
-            <StackBadge name={stack.name}>
+            <StackBadge name={stack}>
               <Image src={"/icons/close.svg"} width={8} height={8} />
             </StackBadge>
           </div>

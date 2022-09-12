@@ -32,8 +32,21 @@ const BottomContainer = ({
           id={stackContainer}
           onMouseLeave={() => setIsMouseLeavesMenu(true)}
           onMouseEnter={() => setIsMouseLeavesMenu(false)}
-        ></div>
+        >
+          {options.map((optionGroup) => (
+            <OptionGroup optionGroup={optionGroup} />
+          ))}
+        </div>
       ) : null}
+    </>
+  );
+};
+
+const OptionGroup = ({ optionGroup }) => {
+  const { name, stack } = optionGroup;
+  return (
+    <>
+      <h4>{name}</h4>
     </>
   );
 };

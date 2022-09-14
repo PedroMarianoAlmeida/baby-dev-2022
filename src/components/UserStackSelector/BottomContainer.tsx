@@ -30,24 +30,23 @@ const BottomContainer = ({
   }, [debouncedIsMouseLeavesMenu]);
 
   const { stackContainer } = styles;
+
+  if (!showOptions) return;
+
   return (
-    <>
-      {showOptions ? (
-        <div
-          id={stackContainer}
-          onMouseLeave={() => setIsMouseLeavesMenu(true)}
-          onMouseEnter={() => setIsMouseLeavesMenu(false)}
-        >
-          {options.map((optionGroup) => (
-            <OptionGroup
-              optionGroup={optionGroup}
-              selected={selected}
-              addSelected={addSelected}
-            />
-          ))}
-        </div>
-      ) : null}
-    </>
+    <div
+      id={stackContainer}
+      onMouseLeave={() => setIsMouseLeavesMenu(true)}
+      onMouseEnter={() => setIsMouseLeavesMenu(false)}
+    >
+      {options.map((optionGroup) => (
+        <OptionGroup
+          optionGroup={optionGroup}
+          selected={selected}
+          addSelected={addSelected}
+        />
+      ))}
+    </div>
   );
 };
 

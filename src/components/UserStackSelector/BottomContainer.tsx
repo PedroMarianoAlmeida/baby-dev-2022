@@ -9,6 +9,7 @@ interface BottomContainerProps {
   setShowOptions(option: boolean): void;
   options: { name: string; stack: string[] }[];
   selected: string[];
+  addSelected(name: string): void;
 }
 
 const BottomContainer = ({
@@ -16,6 +17,7 @@ const BottomContainer = ({
   setShowOptions,
   options,
   selected,
+  addSelected,
 }: BottomContainerProps) => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
@@ -38,9 +40,9 @@ const BottomContainer = ({
         >
           {options.map((optionGroup) => (
             <OptionGroup
-              key={optionGroup.name}
               optionGroup={optionGroup}
               selected={selected}
+              addSelected={addSelected}
             />
           ))}
         </div>
@@ -52,9 +54,14 @@ const BottomContainer = ({
 interface OptionGroupProps {
   optionGroup: { name: string; stack: string[] };
   selected: string[];
+  addSelected(name: string): void;
 }
 
-const OptionGroup = ({ optionGroup, selected }: OptionGroupProps) => {
+const OptionGroup = ({
+  optionGroup,
+  selected,
+  addSelected,
+}: OptionGroupProps) => {
   const { name, stack } = optionGroup;
 
   const { stackGroupTitle, stacksGroupContainer } = styles;
@@ -63,11 +70,13 @@ const OptionGroup = ({ optionGroup, selected }: OptionGroupProps) => {
       <h3 className={stackGroupTitle}>{name}</h3>
       <div className={stacksGroupContainer}>
         {stack.map((option) => (
-          <StackBadge
-            name={option}
+          <div
             key={`${name}-${option}`}
-            isSelected={selected.includes(option)}
-          />
+            onClick={() => addSelected(option)}
+            className="cursor-pointer"
+          >
+            <StackBadge name={option} isSelected={selected.includes(option)} />
+          </div>
         ))}
       </div>
     </>

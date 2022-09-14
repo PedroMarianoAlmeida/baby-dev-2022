@@ -53,6 +53,11 @@ const UserStackSelector = () => {
     setSelected(newSelected);
   };
 
+  const addSelected = (name: string) => {
+    const newSelected = [...selected, name]
+    setSelected(newSelected);
+  }
+
   const { root } = styles;
 
   return (
@@ -68,6 +73,7 @@ const UserStackSelector = () => {
         setShowOptions={setShowOptions}
         options={allOptions}
         selected={selected}
+        addSelected={addSelected}
       />
     </div>
   );

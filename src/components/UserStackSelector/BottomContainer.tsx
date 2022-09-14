@@ -43,6 +43,7 @@ const BottomContainer = ({
     >
       {options.map((optionGroup) => (
         <OptionGroup
+          key={optionGroup.name}
           optionGroup={optionGroup}
           selected={selected}
           addSelected={addSelected}

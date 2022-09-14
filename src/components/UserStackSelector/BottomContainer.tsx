@@ -20,7 +20,7 @@ const BottomContainer = ({
   selected,
   addSelected,
   removeSelected,
-}: BottomContainerProps) => {
+}: BottomContainerProps): JSX.Element | null => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
 
@@ -33,7 +33,7 @@ const BottomContainer = ({
 
   const { stackContainer } = styles;
 
-  if (!showOptions) return;
+  if (!showOptions) return null;
 
   return (
     <div

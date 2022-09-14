@@ -10,6 +10,7 @@ interface BottomContainerProps {
   options: { name: string; stack: string[] }[];
   selected: string[];
   addSelected(name: string): void;
+  removeSelected(id: string): void;
 }
 
 const BottomContainer = ({
@@ -18,6 +19,7 @@ const BottomContainer = ({
   options,
   selected,
   addSelected,
+  removeSelected,
 }: BottomContainerProps) => {
   const [isMouseLeavesMenu, setIsMouseLeavesMenu] = useState(false);
   const debouncedIsMouseLeavesMenu = useDebounce(isMouseLeavesMenu, 350);
@@ -44,6 +46,7 @@ const BottomContainer = ({
           optionGroup={optionGroup}
           selected={selected}
           addSelected={addSelected}
+          removeSelected={removeSelected}
         />
       ))}
     </div>
@@ -54,14 +57,21 @@ interface OptionGroupProps {
   optionGroup: { name: string; stack: string[] };
   selected: string[];
   addSelected(name: string): void;
+  removeSelected(id: string): void;
 }
 
 const OptionGroup = ({
   optionGroup,
   selected,
   addSelected,
+  removeSelected,
 }: OptionGroupProps) => {
   const { name, stack } = optionGroup;
+
+  const handleClick = (name: string) => {
+    const isSelected = selected.includes(name);
+    isSelected ? removeSelected(name) : addSelected(name);
+  };
 
   const { stackGroupTitle, stacksGroupContainer } = styles;
   return (
@@ -71,7 +81,7 @@ const OptionGroup = ({
         {stack.map((option) => (
           <div
             key={`${name}-${option}`}
-            onClick={() => addSelected(option)}
+            onClick={() => handleClick(option)}
             className="cursor-pointer"
           >
             <StackBadge name={option} isSelected={selected.includes(option)} />

@@ -74,6 +74,7 @@ const UserStackSelector = () => {
         options={allOptions}
         selected={selected}
         addSelected={addSelected}
+        removeSelected={removeSelected}
       />
     </div>
   );

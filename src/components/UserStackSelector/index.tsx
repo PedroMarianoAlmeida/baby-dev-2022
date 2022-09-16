@@ -5,46 +5,16 @@ import styles from "./UserStackSelector.module.css";
 import TopContainer from "./TopContainer";
 import BottomContainer from "./BottomContainer";
 
-const initialSelected = ["HTML", "React Native", "JavaScript"];
 
-const allOptions = [
-  {
-    name: "Linguagens de Programação",
-    stack: ["JavaScript", "PHP", "Ruby", "Java", "C#"],
-  },
-  {
-    name: "Frontend",
-    stack: [
-      "HTML",
-      "CSS",
-      "React",
-      "Angular",
-      "Vue",
-      "Svelte",
-      "Next",
-      "Nuxt",
-      "Oxygen",
-    ],
-  },
-  {
-    name: "Backend",
-    stack: ["Node", "Laravel", "Elixir", "Springboot", "Ruby on Rails"],
-  },
-  {
-    name: "Mobile",
-    stack: ["React Native", "Flutter", "Android", "iOS", "Ionic"],
-  },
-  {
-    name: "Low Code",
-    stack: ["Wordpress", "Vtex", "Service Now"],
-  },
-  {
-    name: "Devops",
-    stack: ["AWS", "Docker", "Terraform"],
-  },
-];
+interface UserStackSelectorProps {
+  initialSelected: string[];
+  allOptions: { name: string; stack: string[] }[];
+}
 
-const UserStackSelector = () => {
+const UserStackSelector = ({
+  initialSelected,
+  allOptions,
+}: UserStackSelectorProps) => {
   const [selected, setSelected] = useState(initialSelected);
   const [showOptions, setShowOptions] = useState(false);
 
@@ -54,9 +24,9 @@ const UserStackSelector = () => {
   };
 
   const addSelected = (name: string) => {
-    const newSelected = [...selected, name]
+    const newSelected = [...selected, name];
     setSelected(newSelected);
-  }
+  };
 
   const { root } = styles;
 

@@ -3,6 +3,45 @@ import Head from "next/head";
 import UserStackSelector from "../src/components/UserStackSelector";
 import styles from "../styles/Home.module.css";
 
+const initialSelected = ["HTML", "React Native", "JavaScript"];
+
+const allOptions = [
+  {
+    name: "Linguagens de Programação",
+    stack: ["JavaScript", "PHP", "Ruby", "Java", "C#"],
+  },
+  {
+    name: "Frontend",
+    stack: [
+      "HTML",
+      "CSS",
+      "React",
+      "Angular",
+      "Vue",
+      "Svelte",
+      "Next",
+      "Nuxt",
+      "Oxygen",
+    ],
+  },
+  {
+    name: "Backend",
+    stack: ["Node", "Laravel", "Elixir", "Springboot", "Ruby on Rails"],
+  },
+  {
+    name: "Mobile",
+    stack: ["React Native", "Flutter", "Android", "iOS", "Ionic"],
+  },
+  {
+    name: "Low Code",
+    stack: ["Wordpress", "Vtex", "Service Now"],
+  },
+  {
+    name: "Devops",
+    stack: ["AWS", "Docker", "Terraform"],
+  },
+];
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -13,7 +52,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <UserStackSelector />
+        <UserStackSelector initialSelected={initialSelected} allOptions={allOptions}/>
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import styles from "./StackBadge.module.css";
+import styles from "./StackBadge.module.scss";
 
 interface StackBadgeProps {
   name: string;

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import UserStackSelector from "../src/components/UserStackSelector";
-import styles from "../styles/Home.module.css";
+import UserStackSelector from "../components/UserStackSelector";
+import styles from "../../styles/Home.module.css";
 
 const initialSelected = ["HTML", "React Native", "JavaScript"];
 
